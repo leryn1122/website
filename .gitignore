@@ -378,4 +378,5 @@ gradle-app.setting
 
 # End of https://www.toptal.com/developers/gitignore/api/linux,windows,macos,java,maven,gradle,jetbrains+all,intellij+all,visualstudiocode,eclipse
 
+!build/
 **.~java
