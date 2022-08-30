@@ -12,6 +12,6 @@ FROM openjdk:17-oracle AS publish
 
 WORKDIR /opt
 
-COPY --from=build /opt/target/app.jar ./app.jar
+COPY --from=build /opt/target/*.jar ./app.jar
 
 CMD ["/bin/bash", "-c", "find -type f -name '*.jar' | xargs java $JAVA_OPTS -jar -Dspring.profiles.active=prod"]

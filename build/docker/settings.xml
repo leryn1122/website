@@ -258,26 +258,6 @@ under the License.
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.compilerVersion>17</maven.compiler.compilerVersion>
       </properties>
-      
-      <repositories>
-        <repository>
-          <id>cloudera</id>
-          <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
-        </repository>
-        <repository>
-          <id>jboss</id>
-          <url>https://repository.jboss.org/nexus/content/groups/public</url>
-        </repository>
-        <repository>
-          <id>spring-releases</id>
-          <url>https://repo.spring.io/libs-release</url>
-        </repository>
-        <repository>
-          <id>spring-milestone</id>
-          <name>Spring Repository</name>
-          <url>https://repo.spring.io/milestone</url>
-        </repository>
-      </repositories>
     </profile>
   </profiles>
 
