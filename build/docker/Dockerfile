@@ -14,4 +14,4 @@ WORKDIR /opt
 
 COPY --from=build /opt/target/*.jar ./app.jar
 
-CMD ["/bin/bash", "-c", "find -type f -name '*.jar' | xargs java $JAVA_OPTS -jar -Dspring.profiles.active=prod"]
+ENTRYPOINT exec java $JAVA_OPTS -jar app.jar
