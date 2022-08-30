@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SitemapVO {
   private String title;
-  private String desc;
+  private String description;
   private String url;
   private String logo;
 }
