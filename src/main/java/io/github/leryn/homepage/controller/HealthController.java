@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthController {
 
   @GetMapping("/healthz")
-  public Result healthz() {
+  public Result<Void> healthz() {
     return Result.onSuccess("Health check passed!!");
   }
 

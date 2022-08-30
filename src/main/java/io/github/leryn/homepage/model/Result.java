@@ -4,63 +4,20 @@ package io.github.leryn.homepage.model;
  * @author Leryn
  * @since Leryn 1.0.0
  */
-public class Result {
+public class Result<T> {
 
   // Static Fields.
 
   private static final int SUCCESS_CODE = 0;
 
-  private static final int ERROR_CODE = - 1;
+  private static final int ERROR_CODE = -1;
 
   // Static Methods.
-
-  public static Result onSuccess(int code, String message, Object data) {
-    return new Result(code, message, data);
-  }
-
-  public static Result onSuccess(int code, String message) {
-    return onSuccess(code, message, null);
-  }
-
-  public static Result onSuccess(String message) {
-    return onSuccess(SUCCESS_CODE, message, null);
-  }
-
-  public static Result onSuccess(String message, Object data) {
-    return onSuccess(SUCCESS_CODE, message, data);
-  }
-
-  public static Result onSuccess(Object data) {
-    return onSuccess(SUCCESS_CODE, "", data);
-  }
-
-  public static Result onError(int code, String message, Object data) {
-    return new Result(code, message, data);
-  }
-
-  public static Result onError(int code, String message) {
-    return onError(code, message, null);
-  }
-
-  public static Result onError(String message) {
-    return onError(ERROR_CODE, message, null);
-  }
-
-  public static Result onError(String message, Object data) {
-    return onError(ERROR_CODE, message, data);
-  }
-
-  // Fields.
-
   /** Http code. */
   private int code;
-
   /** Http message. */
   private String message;
-
-  private Object data;
-
-  // Constructors.
+  private T data;
 
   private Result() {
     this(0, null, null);
@@ -70,29 +27,47 @@ public class Result {
     this(code, message, null);
   }
 
-  private Result(int code, String message, Object data) {
+  private Result(int code, String message, T data) {
     this.code = code;
     this.message = message;
     this.data = data;
   }
 
-  // Methods to Override.
+  public static <T> Result<T> onSuccess(int code, String message, T data) {
+    return new Result<>(code, message, data);
+  }
 
-  //  java.lang.Object
-  //==========================================================================//
+  public static <T> Result<T> onSuccess(int code, String message) {
+    return onSuccess(code, message, null);
+  }
 
-//  /** {@inheritDoc} */
-//  @Override
-//  public String toString() {
-//    try {
-//      ObjectMapper objectMapper = new ObjectMapper();
-//      return objectMapper.writeValueAsString(this);
-//    } catch (JsonProcessingException e) {
-//      return super.toString();
-//    }
-//  }
+  public static <T> Result<T> onSuccess(String message) {
+    return onSuccess(SUCCESS_CODE, message, null);
+  }
 
-  // Getters & Setters.
+  public static <T> Result<T> onSuccess(String message, T data) {
+    return onSuccess(SUCCESS_CODE, message, data);
+  }
+
+  public static <T> Result<T> onSuccess(T data) {
+    return onSuccess(SUCCESS_CODE, "", data);
+  }
+
+  public static <T> Result<T> onError(int code, String message, T data) {
+    return new Result<>(code, message, data);
+  }
+
+  public static <T> Result<T> onError(int code, String message) {
+    return onError(code, message, null);
+  }
+
+  public static <T> Result<T> onError(String message) {
+    return onError(ERROR_CODE, message, null);
+  }
+
+  public static <T> Result<T> onError(String message, T data) {
+    return onError(ERROR_CODE, message, data);
+  }
 
   public int getCode() {
     return this.code;
@@ -110,11 +85,11 @@ public class Result {
     this.message = message;
   }
 
-  public Object getData() {
+  public T getData() {
     return this.data;
   }
 
-  public void setData(Object data) {
+  public void setData(T data) {
     this.data = data;
   }
 }
