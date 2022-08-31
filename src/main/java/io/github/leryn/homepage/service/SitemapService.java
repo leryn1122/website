@@ -22,7 +22,8 @@ public class SitemapService {
     List<SitemapVO> sitemapVOs = dsl.select(Tables.SITEMAP.fields())
       .from(Tables.SITEMAP)
       .where(Tables.SITEMAP.DELETED.eq(true))
-      .limit(1, 100)
+      .orderBy(Tables.SITEMAP.ID)
+      .limit(0, 100)
       .fetchInto(SitemapVO.class);
     return sitemapVOs;
   }
